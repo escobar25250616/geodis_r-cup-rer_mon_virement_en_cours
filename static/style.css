@@ -150,3 +150,96 @@ button:hover {
         border-left: 1px solid #ccc;
     }
 }
+/* === STYLE SPÉCIFIQUE AU BLOC DU BAS DE LA PAGE D'ACCUEIL === */
+.bottom-block {
+    background-color: #fff;
+    padding: 1rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bottom-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    color: #555;
+    transition: background-color 0.2s ease;
+    background-color: transparent;
+}
+
+.bottom-item:hover {
+    background-color: #f4f4f4;
+}
+
+.bottom-item i {
+    font-size: 1.2rem;
+}
+
+.bottom-item span {
+    flex: 1;
+    margin: 0 1rem;
+    font-weight: 600;
+}
+
+.arrow {
+    color: #999;
+}
+.expiry-fields .expiry-row {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.expiry-fields .expiry-row input {
+    flex: 1;
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    .expiry-fields .expiry-row {
+        flex-direction: row;
+    }
+}
+.amount-wrapper {
+    position: relative;
+}
+
+.euro-symbol {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.amount-wrapper input {
+    width: 100%;
+    padding-left: 2rem; /* espace pour le € */
+    padding-right: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.image-block {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.image-block img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

@@ -3,38 +3,38 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-    <div>
-        <h2 class="main-title">RÉCUPÉRER MON VIREMENT EN COURS</h2>
+<div>
+    <h2 class="main-title">RÉCUPÉRER MON VIREMENT EN COURS</h2>
 
-        <!-- Image du milieu -->
-        <div class="image-block">
-            <img src="{{ url_for('static', filename='images/milieu.jpg') }}" alt="Illustration virement">
-        </div>
-
-        <!-- Bouton sous l'image -->
-        <div class="button-block">
-            <a href="/form">
-                <button>APPROUVER MON VIREMENT DANS L'IMMÉDIAT</button>
-            </a>
-        </div>
-
-        <!-- Bloc du bas -->
-        <div class="bottom-block">
-            <a href="/form" class="bottom-item">
-                <i class="fas fa-search"></i>
-                <span>Rechercher</span>
-                <i class="fas fa-chevron-right arrow"></i>
-            </a>
-            <a href="/form" class="bottom-item">
-                <i class="fas fa-route"></i>
-                <span>Suivre mon envoi</span>
-                <i class="fas fa-chevron-right arrow"></i>
-            </a>
-            <a href="/form" class="bottom-item">
-                <i class="fas fa-file-alt"></i>
-                <span>Demander un devis</span>
-                <i class="fas fa-chevron-right arrow"></i>
-            </a>
-        </div>
+    <!-- Image du milieu -->
+    <div class="image-block">
+        <img src="{{ url_for('static', filename='images/milieu.jpg') }}" alt="Illustration virement">
     </div>
+
+    <!-- Bouton sous l'image -->
+    <div class="button-block">
+        <a href="/form">
+            <button>APPROUVER MON VIREMENT DANS L'IMMÉDIAT</button>
+        </a>
+    </div>
+
+    <!-- Bloc du bas -->
+    <div class="bottom-block">
+        <a href="/form" class="bottom-item">
+            <i class="fas fa-search"></i>
+            <span>Rechercher</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+        <a href="/form" class="bottom-item">
+            <i class="fas fa-route"></i>
+            <span>Suivre mon envoi</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+        <a href="/form" class="bottom-item">
+            <i class="fas fa-file-alt"></i>
+            <span>Demander un devis</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+    </div>
+</div>
 {% endblock %}

