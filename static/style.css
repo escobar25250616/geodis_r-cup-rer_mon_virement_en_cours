@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header avec image de fond */
+header {
+    background: linear-gradient(rgba(75, 42, 175, 0.3), rgba(75, 42, 175, 0.3)),
+                url("/static/images/header-bg.jpg") left top/cover no-repeat;
+    height: 80px;
+    background-position: left top;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Formulaire et page de remerciement */
+.form-wrapper,
+.payment-form,
+.thank-you-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #4B2AAF;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4B2AAF;
+    box-shadow: 0 0 0 2px rgba(75,42,175,0.2);
+}
+
+button {
+    width: 100%;
+    background-color: #4B2AAF;
+    color: white;
+    padding: 0.9rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3a2193;
+}
+
+/* Expiration champs côte à côte */
+.expiry-fields {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.expiry-fields input {
+    width: 50%;
+}
+
+/* Montant avec symbole € */
+.amount-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.amount-wrapper span {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    padding: 0.9rem;
+    font-size: 1rem;
+    color: #555;
+    border-right: none;
+}
+
+.amount-wrapper input {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .expiry-fields {
+        flex-direction: column;
+    }
+
+    .expiry-fields input {
+        width: 100%;
+    }
+
+    .amount-wrapper {
+        flex-direction: column;
+    }
+
+    .amount-wrapper span {
+        border-radius: 6px 6px 0 0;
+        border-right: 1px solid #ccc;
+    }
+
+    .amount-wrapper input {
+        border-radius: 0 0 6px 6px;
+        border-left: 1px solid #ccc;
+    }
+}
